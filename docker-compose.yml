@@ -223,10 +223,12 @@ services:
         - "${NGINX_HOST_HTTPS_PORT}:443"
       depends_on:
         - php-fpm
-      networks:
-        - frontend
-        - backend
         - php-fpm5
+      networks:
+        frontend:
+        backend:
+          aliases:
+            - be2api.docker.kkday.com
 
 ### Blackfire ########################################
     blackfire:
